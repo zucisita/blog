@@ -3,33 +3,39 @@
 <head>
   <title>Blog</title>
   <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
 </head>
 <body>
-  <header>
-    <nav class="be-red white large-padding">
-      <ul class="row center-xs middle-xs">
-        <li class="col-md">
+    <header>
+      <nav class="be-red white large-padding">
+        <ul class="row center-xs middle-xs">
+          <li class="col-md">
             <h1 class="no-margin" id="logo">Blog Facilito</h1>
-        </li>
-        <li class="col-md">
-          <%=link_to "Inicio", root_path %>
-        </li>
-        <li class="col-md">
-          Diseño
-        </li>
-        <li class="col-md">
-          Programación
-        </li>
-        <li class="col-md">
-          Tecnología
-        </li>
-      </ul>
-    </nav>
-  </header>
-<%= yield %>
-
+          </li>
+          <li class="col-md">
+            <%=link_to "Inicio", root_path %>
+          </li>
+          <li class="col-md">
+            Diseño
+          </li>
+          <li class="col-md">
+            Programación
+          </li>
+          <li class="col-md">
+            Tecnología
+          </li>
+          <% if user_signed_in? %>
+            <li class="col-md">
+              <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %>
+            </li>
+          <%end%>
+        </ul>
+      </nav>
+    </header>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
 </body>
 </html>
