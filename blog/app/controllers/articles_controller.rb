@@ -46,6 +46,6 @@ end
  end
 
  def article_params
-   params.require(:article).permit(:title,:body)
+   params.require(:article).permit(:title,:body,:cover)
  end
 end
