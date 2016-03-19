@@ -12,6 +12,7 @@ class ArticlesController < ApplicationController
 
  def new
    @article = Article.new
+   @categories = Category.all
  end
 
  def edit
@@ -46,6 +47,6 @@ end
  end
 
  def article_params
-   params.require(:article).permit(:title,:body,:cover)
+   params.require(:article).permit(:title,:body,:cover,:categories)
  end
 end
