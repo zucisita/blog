@@ -2,6 +2,8 @@ class Article < ActiveRecord::Base
 
   belongs_to :user
   has_many :comments
+  has_many :has_categories
+  has_many :categories, through: :has_categories
 
   validates :title, presence: true, uniqueness: true
   validates :body, presence: true, length: { minimum: 20 }
@@ -11,7 +13,7 @@ class Article < ActiveRecord::Base
   has_attached_file :cover, styles: { medium: "1280x720", thumb:"800x600" }
   validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
 
-  #custom setter
+  #custom setter ~ atributo virtual
   def categories=(value)
     @categories = value
   end
