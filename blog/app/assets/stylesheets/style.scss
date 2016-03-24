@@ -63,6 +63,9 @@ a, a:visited{
 .field, .top-space, .actions{
   margin-top: 1em;
 }
+.hidden{
+  display: none !important;
+}
 .background-cover{
   background-position: center;
   background-size: cover;
