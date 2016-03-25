@@ -19,6 +19,20 @@ Rails.application.configure do
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
+  #For mailing
+  config.action_mailer.default_url_options = { host: "localhost:3000" }
+  # config.action_mailer.delivery_method = :letter_opener
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :user_name => '39800e7df215e5',
+    :password => 'ccbc2da43d6051',
+    :address => 'mailtrap.io',
+    :domain => 'mailtrap.io',
+    :port => '2525',
+    :authentication => :cram_md5
+  }
+
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
 
